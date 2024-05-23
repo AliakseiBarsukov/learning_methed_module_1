@@ -1,8 +1,7 @@
 const calcDiscont = (money, productQuantity, promocod) => {
+  console.log('promocod: ', promocod);
   const newMoney = money;
   const product = productQuantity;
-  const promo = promocod;
-  console.log('пришел промокод в начале : ', promo);
 
   const minDiscont = (money, product) => {
     if (product > 10) {
