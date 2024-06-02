@@ -1,34 +1,35 @@
 const calcDiscont = (money, productQuantity, promocod) => {
-  console.log('promocod: ', promocod);
-  const newMoney = money;
-  const product = productQuantity;
+const product = productQuantity;
 
   const minDiscont = (money, product) => {
+    const newMoney = money;
     if (product > 10) {
-      const neWoney = (money * 0.03);
-      return neWoney;
+      const money = newMoney * 0.03;
+      console.log('money: ', money);
+      return money;
     } else {
       return `В корзине ${product} ед. продукта. Необходимо купить больше 10`;
     }
   }
+  const dis1 = minDiscont(money, product);
+  console.log('dis1: ', dis1);
 
-  const dis1 = minDiscont(newMoney, product);
-
-  const maxDiscont = (newMoney) => {
-    if (newMoney > 30000) {
-      const moneyDiscont = ((newMoney - 30000) * 0.15);
+  const maxDiscont = (money) => {
+    if (money > 30000) {
+      const moneyDiscont = ((money - 30000) * 0.15);
       return moneyDiscont;
+      console.log('moneyDiscont: ', moneyDiscont);
     }
   }
 
   const dis2 = maxDiscont(money);
+  console.log('dis2: ', dis2);
 
-  const promoDiscont = (newMoney, promocod) => {
-    console.log('newMoney: ', newMoney);
-    console.log('promo: ', promocod);
+  const promoDiscont = (money, promocod) => {
+    const newMoney = money;
+
     if (promocod === 'METHED') {
       const money = newMoney - 500;
-      // console.log('promoDiscont: ', newMoney);
       return money;
     } else if (promocod === 'G3H2Z1') {
       const money = newMoney - 2000;
@@ -38,12 +39,26 @@ const calcDiscont = (money, productQuantity, promocod) => {
     }
   }
 
-const dis3 = promoDiscont(money);
-// console.log('dis3: ', dis3);
+  const dis3 = promoDiscont(money, promocod);
+  console.log('dis3: ', dis3);
+
+
+  const calcDiscont = (money, dis1, dis2, dis3) => {
+    const result = money - (dis1 + dis2 + dis3);
+    return result;
+  }
+
+  const discont = calcDiscont(dis1, dis2. dis3);
+  console.log('discont - dis1: ', dis1);
+  console.log('discont - dis2: ', dis2);
+  console.log('discont - dis3: ', dis3);
+  console.log('discont: ', discont);
+  
+
 }
 
 
 const discontMethed = calcDiscont(45000, 11, 'METHED');
-// console.log('discontMethed: ', discontMethed);
+console.log('discontMethed: ', discontMethed);
 // const discontG3H2Z1 = calcDiscont(45000, 15, 'G3H2Z1');
 // console.log('discont: ', discontG3H2Z1);
